@@ -18,7 +18,6 @@ class Layout extends Component {
     this.setState({
       menu: !this.state.menu
     })
-    console.log('clicked')
   }
 
   render() {

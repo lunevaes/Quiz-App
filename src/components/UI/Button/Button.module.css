@@ -1,6 +1,7 @@
 .Button {
   display: inline-block;
   padding: 10px 20px;
+  margin-bottom: 10px;
   border-radius: 5px;
   border: none;
   color: black;
@@ -32,12 +33,15 @@
 
 .error {
   background: rgba(245, 87, 108, 0.7);
+  min-width: 190px;
 }
 
 .success {
   background: rgba(160, 240, 69, 0.7);
+  min-width: 190px;
 }
 
 .primary {
   background: #2884f5;
+  min-width: 190px;
 }
