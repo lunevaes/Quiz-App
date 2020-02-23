@@ -1,0 +1,14 @@
+.QuizCreator {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  background: linear-gradient(270deg, #a992fa 0%, #99bfef 100%);
+  padding-top: 100px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
