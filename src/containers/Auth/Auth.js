@@ -61,15 +61,6 @@ export default class Auth extends Component {
     try {
       const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCZx7N4U87TE_ThjJyWOn5wrZlONYAAPcw', authData)
       console.log(response.data)
-
-      this.setState({
-        email: {
-          value: ''
-        },
-        password: {
-          value: ''
-        }
-      })
     } catch (e) {
       console.log(e)
     }
