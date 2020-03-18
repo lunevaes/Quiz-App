@@ -10,7 +10,7 @@ const ActiveQuiz = props => (
         {props.question}
       </span>
 
-      <small>{ props.quizProgress } / { props.quizLenght }</small>
+      <small>{ props.quizProgress } / { props.quizLength }</small>
     </p>
 
     <AnswersList

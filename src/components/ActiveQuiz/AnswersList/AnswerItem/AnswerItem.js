@@ -18,5 +18,4 @@ const AnswerItem = props => {
   )
 }
 
-
 export default AnswerItem
