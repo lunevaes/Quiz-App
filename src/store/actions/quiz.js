@@ -4,10 +4,10 @@ import {
   FETCH_QUIZES_SUCCESS,
   FETCH_QUIZES_ERROR,
   FETCH_QUIZ_SUCCESS,
-  QUIZ_SET_STATE,
   FINISH_QUIZ,
   QUIZ_NEXT_QUESTION,
-  QUIZ_RETRY
+  QUIZ_RETRY,
+  QUIZ_SET_STATE
 } from './actionTypes'
 
 export function fetchQuizes() {
@@ -41,13 +41,15 @@ export function fetchQuizesStart() {
 
 export function fetchQuizesSuccess(quizes) {
   return {
-    type: FETCH_QUIZES_SUCCESS, quizes
+    type: FETCH_QUIZES_SUCCESS,
+    quizes
   }
 }
 
 export function fetchQuizesError(e) {
   return {
-    type: FETCH_QUIZES_ERROR, e
+    type: FETCH_QUIZES_ERROR,
+    error: e
   }
 }
 
@@ -69,14 +71,14 @@ export function fetchQuizById(quizId) {
 
 export function fetchQuizSuccess(quiz) {
   return {
-    quiz,
-    type : FETCH_QUIZ_SUCCESS
+    type : FETCH_QUIZ_SUCCESS,
+    quiz
   }
 }
 
 export function quizSetState(results, answerState) {
   return {
-    type: 'QUIZ_SET_STATE',
+    type: QUIZ_SET_STATE,
     answerState,
     results
   }
@@ -84,17 +86,16 @@ export function quizSetState(results, answerState) {
 
 export function finishQuiz() {
   return {
-    type: 'FINISH_QUIZ'
+    type: FINISH_QUIZ
   }
 }
 
 export function quizNextQuestion(number) {
   return {
-    type: 'QUIZ_NEXT_QUESTION',
+    type: QUIZ_NEXT_QUESTION,
     number
   }
 }
-
 
 export function quizAnswerClick(answerId) {
   return (dispatch, getState) => {
@@ -127,7 +128,6 @@ export function quizAnswerClick(answerId) {
         }, 1000)
       } else {
         results[question.id] = 'error'
-
         dispatch(quizSetState({[answerId]: 'error'}, results))
       }
   }
@@ -135,7 +135,7 @@ export function quizAnswerClick(answerId) {
 
 export function retryQuiz() {
   return {
-    type: 'QUIZ_RETRY'
+    type: QUIZ_RETRY
   }
 }
 

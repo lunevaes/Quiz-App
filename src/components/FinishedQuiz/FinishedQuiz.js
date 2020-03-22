@@ -11,6 +11,7 @@ const FinishedQuiz = props => {
 
     return total
   }, 0)
+
   return(
     <div className={classes.FinishedQuiz}>
       <ul>

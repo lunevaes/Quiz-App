@@ -6,11 +6,11 @@ const ActiveQuiz = props => (
   <div className={classes.ActiveQuiz}>
     <p className={classes.Question}>
       <span>
-        <strong className={classes.Number}>{ props.quizProgress }</strong>
+        <strong className={classes.Number}>{ props.answerNumber }</strong>
         {props.question}
       </span>
 
-      <small>{ props.quizProgress } / { props.quizLength }</small>
+      <small>{ props.answerNumber } / { props.quizLength }</small>
     </p>
 
     <AnswersList
