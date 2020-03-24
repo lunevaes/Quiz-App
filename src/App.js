@@ -7,14 +7,19 @@ import QuizCreator from './containers/QuizCreator/QuizCreator'
 import {Route, Switch, Redirect, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Logout from './components/Logout/Logout'
+import {autoLogin} from './store/actions/auth'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.autoLogin()
+  }
+
   render() {
     let routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
         <Route path="/quiz/:id" component={Quiz} />
-        <Route path="/" component={QuizList} />
+        <Route path="/" exact component={QuizList} />
         <Redirect to="/" />
       </Switch>
     )
@@ -24,8 +29,8 @@ class App extends Component {
         <Switch>
           <Route path="/quiz-creator" component={QuizCreator} />
           <Route path="/quiz/:id" component={Quiz} />
-          <Route path="/" component={QuizList} />
           <Route path="/logout" component={Logout} />
+          <Route path="/" exact component={QuizList} />
           <Redirect to="/" />
         </Switch>
       )
@@ -45,4 +50,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(App))
+function mapDispatchToProps(dispatch) {
+  return {
+    autoLogin: () => dispatch(autoLogin())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
